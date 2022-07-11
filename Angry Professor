@@ -1,0 +1,3 @@
+def angryProfessor(k, a):
+    # Write your code here
+    return "YES" if len([i for i in a if i <= 0]) < k else "NO"
