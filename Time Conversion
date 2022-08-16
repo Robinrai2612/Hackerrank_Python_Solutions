@@ -1,0 +1,17 @@
+def timeConversion(s):
+    # Write your code here
+    minutesSeconds = s[2:-2]
+    hour = s[0] + s[1]
+    miltaryTime = ""
+    if s[-2] == "P" and hour != "12":
+        # logic for PM
+        hour = int(hour)
+        hour += 12
+        hour = str(hour)
+        miltaryTime = hour + minutesSeconds
+    elif s[-2] == "A" and hour == "12":
+        # logic for AM
+        miltaryTime = miltaryTime + "00" + minutesSeconds
+    else:
+        miltaryTime = s[:-2]
+    return miltaryTime
