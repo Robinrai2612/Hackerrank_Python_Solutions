@@ -1,0 +1,12 @@
+def getHeight(self,root):
+        #Write your code here
+        routes = ['root']
+        i = 0
+        while i < len(routes):
+            if eval(routes[i] + '.right'):
+                routes.append(routes[i] + '.right')    
+            if eval(routes[i] + '.left'):
+                routes.append(routes[i] + '.left')
+            i += 1
+
+        return max(route.count('left') + route.count('right') for route in routes)
