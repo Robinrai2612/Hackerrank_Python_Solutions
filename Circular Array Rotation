@@ -1,0 +1,9 @@
+
+def circularArrayRotation(a, k, queries):
+    # Write your code here
+    n=len(a)
+    results = []
+    for q in queries:
+        pos=(q-k)%n
+        results.append(a[pos])
+    return results
