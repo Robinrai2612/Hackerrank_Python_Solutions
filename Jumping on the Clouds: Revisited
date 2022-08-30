@@ -1,1 +1,11 @@
-
+def jumpingOnClouds(c, k):
+    n = len(c) #number of clouds
+    energy = 100
+    i=1  #number of jumps
+    while True:
+        current_cloud = (i*k)%n    #jumping around the array with mod
+        energy -= c[current_cloud]*2+1  #energy cost 1 or 3
+        if (i*k)%n ==0:    #return to cloud no.0
+            break
+        i +=1
+    return energy
