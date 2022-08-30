@@ -1,1 +1,10 @@
+def findDigits(n):
+    # Write your code here
+    a=str(n)
+    count=0
+    for i in range (0,len(a)):
+        if int(a[i])!=0: 
+            if n%int(a[i])==0:
+                count=count+1
+    return count
 
