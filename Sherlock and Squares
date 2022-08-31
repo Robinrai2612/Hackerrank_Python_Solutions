@@ -1,0 +1,4 @@
+def squares(a, b):
+    # Write your code here
+    return math.floor(math.sqrt(b))-math.ceil(math.sqrt(a))+1
+    
