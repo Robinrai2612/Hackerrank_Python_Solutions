@@ -1,1 +1,9 @@
-
+def cutTheSticks(arr):
+    # Write your code here
+    lengthlist = []
+    while len(arr)>=1:
+        lengthlist.append(len(arr))
+        x = min(arr)
+        while x in arr:
+            arr.remove(x)
+    return lengthlist
