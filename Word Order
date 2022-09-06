@@ -1,0 +1,19 @@
+from collections import Counter
+def distinct(n, words):
+    cnt_dict = Counter(words)
+    res = [len(cnt_dict)]
+    for i in cnt_dict:
+        res.append(cnt_dict[i])
+    return res
+
+
+if __name__ == "__main__": 
+    no = int(input())
+    word = []
+    for i in range(no):
+        word.append(str(input()))
+    new_res = distinct(no, word)
+    print(new_res[0])
+    for i in range(1,len(new_res)):
+        print(new_res[i], end=" ")
+    
