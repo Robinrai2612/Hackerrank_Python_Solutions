@@ -1,0 +1,24 @@
+ m=[]
+    l=[i%k for i in set(s)]
+    #print(l)
+    counter=Counter(l)
+    print(counter)
+    
+    for i in range(1,k):
+        if counter[i]:
+            continue
+        else:
+            counter[i]=0
+    print(counter)
+    
+    count=0
+    for i in range(1,(k//2)+1):
+        if counter[i]>=counter[k-i]:
+            count+=counter[i]
+        elif counter[i]<counter[k-i] and i!=k-i:
+            count+=counter[k-i]
+        else:
+            count+=counter[0]
+            
+    print(count)
+    return count
