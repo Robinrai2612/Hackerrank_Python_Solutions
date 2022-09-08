@@ -1,0 +1,14 @@
+
+def repeatedString(s, n):
+    # Write your code here
+    if s == 'a':
+        return(n)
+    elif n <= len(s):
+        return(list(s[:n]).count('a'))
+    
+    repeat = n//len(s)
+    len_s = len(s)*repeat
+    freq_s = list(s).count('a')*repeat
+    s_last = s[:n%len_s]
+    freq_s += list(s_last).count('a')
+    return(freq_s)
