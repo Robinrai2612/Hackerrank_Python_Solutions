@@ -1,0 +1,13 @@
+from collections import namedtuple
+
+N = int(input())
+order = input().split()
+student = namedtuple('student', order)
+s = 0
+for i in range(N):
+    inpu = input().split()
+    stu = student(*inpu)
+    # print(*inpu)
+    s += int(stu.MARKS)
+    
+print(s/N)
