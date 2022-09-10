@@ -1,0 +1,11 @@
+from collections import OrderedDict
+d = OrderedDict()
+for _ in range(int(input())):
+    *name, price = input().split()
+    name = " ".join(name)
+    if name in d:
+        d[name] += int(price)
+    else:
+        d[name] = int(price)        
+for i in d:
+    print(i, d[i])
