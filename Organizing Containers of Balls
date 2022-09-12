@@ -1,1 +1,15 @@
 
+def organizingContainers(container):
+    # Write your code here
+    row=[]
+    col=[]
+    for i in range(len(container)):
+        x=0
+        y=0
+        for j in range(len(container)):
+            x+=container[i][j]
+            y+=container[j][i]
+        row.append(x)
+        col.append(y)
+    if(sorted(row)==sorted(col)): return "Possible"
+    else: return "Impossible"
