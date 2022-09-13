@@ -1,0 +1,11 @@
+def jumpingOnClouds(c):
+    # Write your code here
+    i=0
+    count=0
+    while(i<=n-2):
+        if i<=n-3 and (c[i+2]==0):
+            i+=2
+        else:
+            i+=1
+        count+=1
+    return count
