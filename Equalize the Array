@@ -1,1 +1,5 @@
-
+def equalizeArray(arr):
+    # Write your code here
+    counts=[(arr.count(item)) for item in set(arr)]
+    return sum(counts)-(max(counts))
+    
