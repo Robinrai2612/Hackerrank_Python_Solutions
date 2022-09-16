@@ -1,0 +1,7 @@
+def beautifulTriplets(d, arr):
+    # Write your code here
+    count = 0  
+    for a in arr:
+        if (a+d in arr) and (a+d+d in arr):
+            count+=1
+    return count
