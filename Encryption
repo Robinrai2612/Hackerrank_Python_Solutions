@@ -1,0 +1,23 @@
+def encryption(s):
+    # Write your code here
+    estr = re.sub("\s", "", s)
+
+    _rh = (len(estr)**0.5)
+    if round(_rh) < _rh:
+        rows = int(_rh)
+        cols = math.ceil(_rh)
+    else:
+        rows = round(_rh)
+        cols = rows
+
+    estr = estr.ljust(rows*cols, " ")
+
+    ans = [estr[i*cols: cols*(i+1)] for i in range(0, rows)]
+
+    ans = ["".join(i).strip() for i in list(zip(*ans))]
+
+    result = " ".join(ans)
+
+    return result
+
+    
