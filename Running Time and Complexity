@@ -1,0 +1,10 @@
+n=int(input())
+for _ in range(n):
+    x=int(input())
+    ans="Prime"
+    if x==1 :
+        ans="Not prime"
+    for i in range(2, int(x ** 0.5)+1):
+        if x % i == 0:
+            ans="Not prime"
+    print (ans)
