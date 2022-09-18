@@ -1,0 +1,14 @@
+returnDay,returnMonth,returnYear = map(int,input().split())
+dueDay,dueMonth,dueYear = map(int,input().split())
+
+if returnYear > dueYear:
+    fine = 10000 
+elif returnMonth > dueMonth and returnYear == dueYear:
+    fine = 500 * (returnMonth - dueMonth)
+elif returnDay > dueDay and returnYear == dueYear and returnMonth <= dueMonth:
+    fine = 15 * (returnDay - dueDay)
+elif returnDay > dueDay and returnMonth > dueMonth and returnYear > dueYear:
+    fine = (15*(returnDay - dueDay)) + (500 * (returnMonth - dueMonth)) + (10000 * (returnYear - dueYear))
+else:
+    fine = 0
+print(fine)
