@@ -4,7 +4,7 @@ def minimumDistances(a):
     for i in range(n-1):
         for j in range(i+1,n):
             if a[i]==a[j]:
-                res.append(j-i)
+                res.append(abs(i-j))
     if len(res)==0:
         return "-1"
     else:
