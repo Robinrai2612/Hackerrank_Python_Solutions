@@ -1,0 +1,11 @@
+
+def acmTeam(topic):
+    # Write your code here
+    lista = []
+    for i in range(len(topic)):
+        for j in range(i, len(topic)):
+            x = str(int(topic[i])+int(topic[j]))
+        #two elements are added and converted into string and stored in a var
+            lista.append(x.count("1")+x.count("2"))
+    maxi = max(lista)
+    return [maxi,lista.count(maxi)]
