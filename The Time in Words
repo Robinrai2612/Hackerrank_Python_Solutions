@@ -1,0 +1,27 @@
+def timeInWords(h, m):
+    # Write your code here
+    nums = [
+        "one","two","three","four","five","six",
+        "seven","eight","nine","ten","eleven",
+        "twelve","thirteen","forteen","quarter",
+        "sixteen","seventeen","eighteen","nineteen",
+        "twenty","twenty one","twenty two","twenty three",
+        "twenty four","twenty five","twenty six","twenty seven",
+        "twenty eight","twenty nine","half"
+        ]
+    if(m == 0):
+        return nums[h - 1] + " o' clock"
+    elif(m == 15 or m == 30):
+        return nums[m - 1] + " past " + nums[h - 1]
+    elif(m < 30):
+        if(m == 1):
+            return nums[m - 1] + " minute past " + nums[h - 1]
+        return nums[m - 1] + " minutes past " + nums[h - 1]
+    if(m > 30):
+        m = 60 - m
+        if(m == 15):
+            return nums[m - 1] + " to " + nums[h%12]
+        if(m == 1):
+            return nums[m - 1] + " minute to " + nums[h%12]
+        return nums[m - 1] + " minutes to " + nums[h%12]
+    
