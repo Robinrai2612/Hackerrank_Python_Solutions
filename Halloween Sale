@@ -1,0 +1,15 @@
+def howManyGames(p, d, m, s):
+    # Return the number of games you can buy
+    count=0
+    price=s
+    while(price>=p):
+        
+        count+=1
+        price-=p
+        
+        p=p-d
+        if p<=m:
+            p=m
+        
+        
+    return count
