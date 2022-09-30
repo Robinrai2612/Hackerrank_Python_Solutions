@@ -1,1 +1,18 @@
-
+res=0
+    x=[]
+    for v in arr:
+        d={}
+        for i in range(v):
+            if (i+1)%k!=0:
+                d[i+1]=1
+                
+            else:
+                d[i+1]=1
+                x.append(d)
+                d={}
+        if v%k!=0:
+            x.append(d)
+    for i in range(len(x)):
+        if i+1 in x[i]:
+            res+=1
+    return res
