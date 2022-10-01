@@ -1,0 +1,8 @@
+def flatlandSpaceStations(n, c):
+    if len(c) < 2:
+        return max(c[0], (n - 1) - c[0])
+              
+    c.sort()
+    d = max((c[i+1] - c[i])//2 for i in range(len(c)-1))
+        
+    return max(d , c[0] , (n - 1) - c[-1] )
