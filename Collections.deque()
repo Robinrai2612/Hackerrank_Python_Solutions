@@ -1,0 +1,19 @@
+from collections import deque
+N = int(input())
+deque_lst = deque()
+
+methods = list(map(str, (input() for i in range(N))))
+
+#print(methods, end= " ")
+for i in range(N):
+    m = methods[i].split()
+    if m[0] == 'pop':
+        deque_lst.pop()
+    elif m[0] == 'popleft':
+        deque_lst.popleft() 
+    elif m[0] == 'append':
+        deque_lst.append(int(m[1]))
+    elif m[0] == 'appendleft':
+        deque_lst.appendleft(int(m[1]))
+for i in deque_lst:
+    print(i, end = " ")
