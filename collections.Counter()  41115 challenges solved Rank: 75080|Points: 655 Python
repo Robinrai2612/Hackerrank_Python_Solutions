@@ -1,0 +1,15 @@
+from collections import Counter
+X=input()
+size=input().split()
+N=int(input())
+buyer=[]
+for i in range(N):
+    buyer.append(input().split())
+shoes=Counter(size)
+money=0
+for i in buyer:
+    if i[0] in shoes.keys() and shoes[i[0]] != 0:
+        money+=int(i[1])
+        shoes[i[0]]-=1
+print(money)     
+0|Add CommentPer
