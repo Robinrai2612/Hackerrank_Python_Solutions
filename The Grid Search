@@ -1,0 +1,46 @@
+def gridSearch(G, P):
+    # Write your code here
+    match = False
+    
+    #run element in Groups
+    for G_ind in range(len(G)):
+        
+        #run in each character of element of group
+        for G_ele_ind in range(len(G[G_ind])):
+            
+            #find the end index of elem of groups  
+            #which match the len of pateren'element 
+            end = G_ele_ind+len(P[0])
+            
+            #if match the first patern find next
+            if G[G_ind][G_ele_ind:end] == P[0]:
+                
+                #count how many pat need to found next                 
+                #at this line it just found 1
+                n_founded_pat = len(P)-1
+                print(G[G_ind][G_ele_ind:end])
+                
+                #try find next n elemnt in group 
+                #find out does all of them match last patterns 
+                try:
+                    for P_ind in range(1,len(P)):
+                        if G[G_ind+P_ind][G_ele_ind:end] == P[P_ind]:
+                            print(G[G_ind+P_ind][G_ele_ind:end])
+                            
+                            #reduce number need to find pat to 1 
+                            n_founded_pat +=-1
+                        
+                        #find all pat turn flag to True
+            #break Loop
+                        if n_founded_pat == 0:
+                            match = True
+                            break
+                except:
+                    break
+                            
+    #print                    
+    if match :
+        return "YES"
+    else:
+        return "NO"
+    
