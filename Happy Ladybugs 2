@@ -1,0 +1,17 @@
+def happyLadybugs(b):
+    # Write your code here
+    for i in set(b):
+        if b.count(i) == 1 and i != "_":
+            return  "NO"
+    if b.count("_") == 0:
+        s = 0
+        i = 0
+        while i < (len(b) - 1):
+            if b[s] == b[i + 1]:
+                i = i + 1
+            else:
+                if len(b[s:i + 1]) == 1:
+                    return "NO"
+                else:
+                    s = i + 1  
+    return "YES"
