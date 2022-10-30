@@ -1,1 +1,25 @@
-
+def absolutePermutation(n, k):
+    # Write your code here
+    if k == 0:
+        return list(range(1, n + 1))
+    
+    kSol = n//2  # Maximum value of valid k
+    
+    # Odd n have no solution (other than k=0)
+    if n % 2 != 0 or k > kSol:
+        return [-1]
+    
+    # Remaining code applies to even n
+    if kSol % k != 0:
+        # k is only valid if it can evenly divide kSol
+        return [-1]
+    
+    # Build answer
+    ans = []
+    valDict = {}
+    for i in range(1, n + 1):
+        op = valDict.get(i, k + i)
+        valDict[op] = i            
+        ans.append(op)
+        
+    return ans
