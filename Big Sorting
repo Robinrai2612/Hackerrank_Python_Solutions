@@ -1,1 +1,3 @@
-
+def bigSorting(unsorted):
+    # Write your code here
+    return sorted(unsorted, key=int)
