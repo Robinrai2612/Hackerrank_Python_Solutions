@@ -1,1 +1,17 @@
-
+ef superReducedString(s):
+    # Write your code here
+    while 1:
+        flag = False
+        
+        for i in range(len(s)-1):
+            if s[i]==s[i+1]:
+                s = s[:i]+s[i+2:]
+                flag = True
+                break
+                
+        if flag == False:
+            break
+    if len(s) == 0:
+        return 'Empty String'
+    return s
+    
