@@ -1,1 +1,39 @@
+def is_odd(number):
+    return number % 2
+
+def count_inversion(index, numbers):
+    inversion_count = 0
+
+    i = index - 1
+
+    while i >= 0:
+        if numbers[i] > numbers[index]:
+            inversion_count += 1
+        i -= 1
+
+    return inversion_count
+
+def larrysArray(numbers):
+    inversion_count = 0
+
+    for i in range(len(numbers)):
+        inversion_count += count_inversion(i, numbers)
+
+    return "NO" if is_odd(inversion_count) else "YES"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        n = int(input().strip())
+
+        A = list(map(int, input().rstrip().split()))
+
+        result = larrysArray(A)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
 
