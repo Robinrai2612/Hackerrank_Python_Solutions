@@ -1,1 +1,8 @@
+def caesarCipher(s, k):
+    # Write your code here
+    def next_char(c):
+        if c.islower() or c.isupper():
+            return chr((ord('a') if c.islower() else ord('A')) + (((ord(c) + k) - (ord('a') if c.islower() else ord('A'))) % 26))
+        return c
 
+    return ''.join(list(map(next_char, s)))
