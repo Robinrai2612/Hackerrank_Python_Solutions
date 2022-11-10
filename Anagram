@@ -1,0 +1,9 @@
+from collections import Counter
+
+def anagram(s):
+    if len(s) % 2 == 1:
+        return -1    
+    
+    first, last = s[:len(s) // 2], s[len(s) // 2:]
+    c = Counter(first) - Counter(last)
+    return len(list(c.elements()))
