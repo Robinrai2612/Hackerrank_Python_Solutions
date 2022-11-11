@@ -1,1 +1,18 @@
 
+def hackerrankInString(s):
+    # Write your code here
+    target = 'hackerrank'
+    j = 0
+    new = ''
+    for i in target:
+        while j < len(s):
+            if i == s[j]:
+                new += str(i)
+                j += 1
+                break
+            else :
+                j += 1
+    if new == 'hackerrank':
+        return 'YES'
+    else : 
+        return "NO"
