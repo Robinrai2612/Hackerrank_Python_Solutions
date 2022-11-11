@@ -1,0 +1,11 @@
+def marsExploration(s):
+    # Write your code here
+    n = len(s)
+    ct = 0
+    s1 = "SOS" * (n // 3)
+    for i in range(len(s)):
+        if s[i] != s1[i]:
+            ct += 1
+    return ct
+    
+    
