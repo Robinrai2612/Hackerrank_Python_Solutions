@@ -1,1 +1,19 @@
-
+length=len(arr)
+    x=[]
+    m=-1
+    for i in arr:
+        if int(i[0])>m:
+            m=int(i[0])
+    
+    for i in range(m+1):
+        x.append([])
+    for i in range(length):
+        if i<length//2:
+            p="-"
+        else:
+            p=arr[i][1]
+        x[int(arr[i][0])].append(p)
+    #print(x)
+    for i in x:
+        for j in i:
+            print(j,end=" ")
