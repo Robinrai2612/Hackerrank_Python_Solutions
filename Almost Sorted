@@ -1,1 +1,19 @@
-
+def almostSorted(arr):
+    # Write your code here
+    ff=[]
+    f=[]
+    s=sorted(arr)
+    for x in range(len(arr)):
+        if arr[x]!=s[x]:
+            f.append(arr[x])
+            ff.append(x+1)
+    c=f
+    c.reverse()
+    if c==sorted(f) and len(ff)>2:
+        print('yes')
+        print('reverse {} {}'.format(ff[0],ff[-1]))
+    elif len(ff)==2:
+        print('yes')
+        print('swap {} {}'.format(ff[0],ff[1]))
+    else:
+        print('no')
