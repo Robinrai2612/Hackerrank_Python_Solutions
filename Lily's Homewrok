@@ -1,1 +1,26 @@
+def swapSort(arr, n, reverse):
+    result = 0
+    index = {}
+    for i in range(n):
+        index[arr[i]] = i
+    s = sorted(arr) if reverse == False else sorted(arr, reverse=True)
+    cur = 0
+    while cur < n:
+        a, m = arr[cur], s[cur]
+        if a != m:      
+            x = index[m]
+            arr[x] = a
+            index[a] = x
+            result += 1
+        cur += 1
+    return result
+
+
+def lilysHomework(arr):
+    n = len(arr)
+    s, r = arr[:], arr[:]
+    count1 = swapSort(s, n, reverse=False)
+    count2 = swapSort(r, n, reverse=True)
+    return min([count1, count2])
+
 
