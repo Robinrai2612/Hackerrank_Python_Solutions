@@ -1,1 +1,46 @@
+def sortedInsert(arr, n):
+    start = 0
+    end = len(arr) - 1
+    while (start < end):
+        mid = (start + end)//2
+        if n >= arr[mid]:
+            start = mid+1
+        else:
+            end = mid-1
+    if n <= arr[start]:
+        arr.insert(start, n)
+    else:
+        arr.insert(start+1, n)
+    return arr    
 
+def sortedRemove(arr, n):
+    start = 0
+    end = len(arr) - 1
+    while (start <= end):
+        mid = (start + end)//2
+        if n == arr[mid]:
+            arr.pop(mid)
+            return arr
+        if n > arr[mid]:
+            start = mid+1
+        else:
+            end = mid-1
+
+def activityNotifications(expenditure, d):
+    # Write your code here
+    count = 0
+    m = d//2
+    for i in range(len(expenditure)-d):
+        if i == 0:
+            temp = expenditure[:d]
+            temp.sort()
+        else:
+            expense_insert = expenditure[i+d-1]
+            temp = sortedInsert(temp, expense_insert)
+        current_expense = expenditure[i+d]
+        twice_median = temp[m] + temp[-(m+1)]
+        next_remove = expenditure[i]
+        if current_expense >= twice_median:
+            count += 1
+        temp = sortedRemove(temp, next_remove)
+    return count
