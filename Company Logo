@@ -1,1 +1,22 @@
+#!/bin/python3
 
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    s = input()
+    letter_counts = {}
+    for i in s:
+        if i in letter_counts:
+            pass
+        else:
+            count = s.count(i)
+            letter_counts[i] = count
+    
+    final_list = sorted(letter_counts.items(), key=lambda x: (-x[1], x[0]))
+    
+    for i in final_list[:3]:
+        print(*i)
