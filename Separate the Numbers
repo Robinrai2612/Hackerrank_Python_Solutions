@@ -1,1 +1,15 @@
+def separateNumbers(s):
+    # Write your code here
+    n = len(s)
+    for i in range(1,1+n//2):
+        temp_int = int(s[:i])
+        j=0
+        temp_str = ""
+        while(len(temp_str) < n):
+            temp_str += str(temp_int + j)
+            j += 1
+        if temp_str == s:
+            print("YES {}".format(temp_int))
+            return
+    print("NO")
 
