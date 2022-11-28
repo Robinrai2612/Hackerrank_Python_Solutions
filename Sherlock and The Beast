@@ -1,1 +1,10 @@
-
+def decentNumber(n):
+    fives = threes = -1
+    i = 0 # Loop Counter
+    while (n - 5*i) >= 0:
+        if (n - 5*i) % 3 == 0:
+            fives = n - 5*i
+            threes = 5*i
+            break # Aim for maximum number of fives for the greatest number
+        i+=1
+    print(int((fives*'5')+(threes*'3')) if fives > -1 else -1)
