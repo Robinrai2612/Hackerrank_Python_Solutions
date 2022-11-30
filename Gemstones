@@ -1,1 +1,12 @@
+def gemstones(arr):
+    # Write your code here
+    st = arr[0]
+    for i in arr:
+        for j in st:
+            if j not in i:
+                st = st.replace(j,'')
+    st = list(st)
+    st2 = []
+    st2 = [i for n, i in enumerate(st) if i not in st[:n]]
+    return len(st2)
 
