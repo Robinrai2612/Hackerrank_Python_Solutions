@@ -1,1 +1,8 @@
+def funnyString(s):
+    # Write your code here
+    ord_original = [ord(c) for c in s]
+    ord_reverse = [ord(c) for c in s[::-1]]
+    org_diff = [abs(ord_original[i]-ord_original[i+1]) for i in range(len(ord_original)-1)]
+    reverse_diff = [abs(ord_reverse[i]-ord_reverse[i+1]) for i in range(len(ord_reverse)-1)]
+    return 'Funny' if org_diff == reverse_diff else 'Not Funny'
 
