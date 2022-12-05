@@ -3,12 +3,8 @@ import os
 import random
 import re
 import sys
-
-
-
 def countLuck(matrix, k):
     d = {}
-    
     for i in range(len(matrix)):
         for j in range(len(matrix[i])):
             if matrix[i][j] in ('.', '*', 'M'):
@@ -16,8 +12,7 @@ def countLuck(matrix, k):
             
             if matrix[i][j] == 'M':
                 q = [(i, j, [0])]
-                v = [(i, j)]
-                
+                v = [(i, j)]           
     while q:
         i, j, p = q.pop(0)
         
