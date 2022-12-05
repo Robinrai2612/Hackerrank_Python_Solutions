@@ -31,8 +31,7 @@ def countLuck(matrix, k):
             
             if (x, y) in d and (x, y) not in v:
                 v.append((x, y))
-                q.append((x, y, p))
-                
+                q.append((x, y, p)         
         if (len(v) - n) > 1:
             p[0] += 1
     
