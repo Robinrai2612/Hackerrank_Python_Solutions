@@ -1,1 +1,38 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <set>
+#include <map>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int Q;
+    cin >> Q;
+    
+    map<string, int> m;
+    for ( int i = 0; i < Q; ++i ) {
+        int query, val;
+        string name;
+        
+        cin >> query >> name;
+        m.emplace(name, 0);
+        
+        if ( query == 1 ) {
+            cin >> val;
+            m[name] += val;    
+        } else if ( query == 2 ) {
+            m[name] = 0;
+        } else { // if ( query == 3 )
+            cout << m[name] << endl;   
+        }
+    }
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    return 0;
+}
+
+
+
 
