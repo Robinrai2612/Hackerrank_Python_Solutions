@@ -29,7 +29,6 @@ int main() {
             cout << m[name] << endl;   
         }
     }
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
     return 0;
 }
 
