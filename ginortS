@@ -1,1 +1,5 @@
-
+n = input()
+lower_upper = ''.join([i for i in sorted(n, key = lambda x: (x.isupper(), str(x))) if i.islower() == True or i.isupper() == True])
+nums = [int(i) for i in n if i.isnumeric() == True]
+sorting = sorted(nums, key = lambda x: (x % 2 == 0, x %2 !=0, int(x)))
+print(lower_upper + ''.join(map(str, sorting)))
