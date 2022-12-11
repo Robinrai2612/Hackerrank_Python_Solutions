@@ -1,1 +1,23 @@
+from html.parser import HTMLParser
+from sys import stdin
 
+class MyHTMLParser(HTMLParser):
+    def __handle_attrs(self, attrs):
+        for name, value in attrs:
+            print('->', name, '>', value)
+    
+    def handle_starttag(self, tag, attrs):
+        print('Start', ':', tag)
+        self.__handle_attrs(attrs)
+    
+    def handle_endtag(self, tag):
+        print('End'.ljust(5), ':', tag)
+    
+    def handle_startendtag(self, tag, attrs):
+        print('Empty', ':', tag)
+        self.__handle_attrs(attrs)   
+    
+if __name__ == "__main__":
+    N = int(input())
+    parser = MyHTMLParser()
+    parser.feed(stdin.read())
