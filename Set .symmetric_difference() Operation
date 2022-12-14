@@ -1,1 +1,8 @@
+n = int(input())
+eng_students = set(list(map(int, input().split())))
+n1 = int(input())
+fre_students = set(list(map(int, input().split())))
 
+dif = eng_students.symmetric_difference(fre_students)
+
+print(len(dif))
