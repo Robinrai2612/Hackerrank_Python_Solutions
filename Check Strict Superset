@@ -1,1 +1,13 @@
+A = set(map(int, input().split()))
+n = int(input())
+res = True
+for _ in range(n):
+    other = set(map(int, input().split()))
+    if not A.issuperset(other):
+        res = False
+        break
+    if not len(A) - len(other) > 1:
+        res = False
+        break
 
+print(res)
