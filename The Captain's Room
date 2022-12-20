@@ -1,1 +1,2 @@
-
+K,rooms= int(input()), list(map(int,input().split())) #Get Inputs
+print((sum(set(rooms))*K-sum(rooms))//(K-1)
