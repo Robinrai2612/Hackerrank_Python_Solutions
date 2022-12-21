@@ -1,1 +1,9 @@
+import re, sys
 
+regstr = r'''(?=^[456])
+        (?!^.*(?P<rep>\d)-?(?P=rep)-?(?P=rep)-?(?P=rep).*$)
+        \d{4}(?P<sep>-?)\d{4}(?P=sep)\d{4}(?P=sep)\d{4}$
+    '''
+regex = re.compile(regstr, flags=re.X)
+for _, numbers in zip(range(int(input())), sys.stdin):
+    print('Valid' if regex.match(numbers.strip()) else 'Invalid')
