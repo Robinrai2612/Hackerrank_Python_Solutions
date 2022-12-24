@@ -1,1 +1,7 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+a =  input().split(" ")
+b =  input().split(" ")
+product = [(int(x), int(y)) for x in a for y in b]
 
+for tup in product:
+    print(tup, end=" ")
