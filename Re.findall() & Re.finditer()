@@ -1,1 +1,11 @@
+import re
 
+pattern = r'[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]([aeiouAEIOU]{2,})(?=[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ])'
+
+ar = re.findall(pattern, input())
+
+if len(ar) > 0:
+    for i in ar:
+        print (i)
+else:
+    print (-1)
