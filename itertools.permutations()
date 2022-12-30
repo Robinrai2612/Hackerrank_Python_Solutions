@@ -1,1 +1,5 @@
-
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import permutations
+word, length = input().split()
+length = int(length)
+print('\n'.join(sorted([''.join(per) for per in permutations(word,length)])))
