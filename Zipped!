@@ -1,1 +1,11 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n,x=input().split()
+subject_marks = []
+L=[]
+for i in range(int(x)):
+    marks = list(map(float,input().split()))
+    subject_marks.append(marks)
 
+L=zip(*subject_marks)
+for i in L:
+    print(sum(i)/int(x))
