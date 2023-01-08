@@ -1,1 +1,9 @@
-
+num_of_elem = int(input())
+list_of_elem = set(map(int, input().split()))
+num_of_sets = int(input())
+set_a = set(list_of_elem)
+for i in range(num_of_sets):
+    operation = input().split()
+    elem_for_operation = set(map(int, input().split()))
+    set_a.__getattribute__(operation[0])(elem_for_operation)
+print(sum(set_a))
