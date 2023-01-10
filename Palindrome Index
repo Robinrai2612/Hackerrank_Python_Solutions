@@ -1,4 +1,4 @@
-ef palindromeIndex(s):
+def palindromeIndex(s):
     if s==s[::-1]:
         return -1
     n=len(s)//2
