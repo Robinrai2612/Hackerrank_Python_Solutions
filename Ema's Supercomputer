@@ -1,71 +1,58 @@
-class Plus():
-    def __init__(self, center, size, cords):
-        self.center = center
-        self.size = size
-        self.area = 4*size + 1
-        self.cords = cords #do without center
 
-def ch_even(grid):
-    x, y = len(grid), len(grid[0])
+import math
+import os
+import random
+import re
+import sys
 
-    if x % 2 == 0:
-        x = x//2-1
-    else:
-        x = x//2
-    if y % 2 == 0:
-        y = y//2-1
-    else:
-        y = y//2
-    return x, y
 
-def get_plus(grid, i, j):
-    res = []
-    max_it = min(ch_even(grid))
-    cords = ()
-    for k in range(1, max_it + 1): #increasing size
-        try:
-            tmp = grid[i+k][j+k]
-        except IndexError:
-            break
-        if i - k < 0 or j - k < 0 or grid[i-k][j] == "B" or grid[i+k][j] == "B" or grid[i][j-k] == "B" or grid[i][j+k] == "B":
-            break
-        cords += ([i, j-k], [i, j+k], [i-k, j], [i+k, j], [i, j])
-        p = Plus([i, j], k, cords)
-        res.append(p)
-    return res
-
-def all_pluses(grid):
-    res = []
+def twoPluses(grid):
+    plusses=[]
     for i in range(len(grid)):
         for j in range(len(grid[0])):
-            if grid[i][j] == "G":
-                res.append(Plus([i, j], 0, [i, j]))
-                res += get_plus(grid, i, j)
-    return res
+            if grid[i][j] != 'B':
+                max_plus_length=min((len(grid)-1)//2, (len(grid[0])-1)//2, i, j, len(grid)-i-1, len(grid[0])-j-1)
+                plus = set()
+                plus.add((i,j))
+                plusses.append(plus)
+                for k in range(1, max_plus_length+1):
+                    if grid[i-k][j] == 'G' and \
+                       grid[i+k][j] == 'G' and \
+                       grid[i][j-k] == 'G' and \
+                       grid[i][j+k] == 'G':
+                        plus.add((i-k,j))
+                        plus.add((i+k,j))
+                        plus.add((i,j-k))
+                        plus.add((i,j+k))
+                    else:
+                        break
+                    subplus = plus.copy()
+                    plusses.append(subplus)
 
-def check_integrity(a, b): #a, b are pluses (objects)
-    for el in a.cords:
-        if el in b.cords:
-            return False
-    return True
+    max_area_product = 0
+    for pi in plusses:
+        for pj in plusses:
+            if not pi.intersection(pj):
+                max_area_product = max(max_area_product, len(pi)*len(pj))
+            
+    return max_area_product
+    
 
-def sort_plus(pluses):
-    pluses = sorted(pluses, key=lambda x: -x.size)
-    res = []
-    i, j = 0, 0
-    while i != len(pluses) - 1:
-        j = i + 1
-        while j != len(pluses):
-            if check_integrity(pluses[i], pluses[j]):
-                res.append(pluses[i].area*pluses[j].area)
-            j += 1
-        i += 1
-    return max(res)
-		
-if __name__ == "__main__":
-    n = list(map(int, input().split()))
-    n = n[0]
-    grid = [input() for _ in range(n)]
-    pluses = all_pluses(grid)
-    print(sort_plus(pluses))
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
+    first_multiple_input = input().rstrip().split()
+
+    n = int(first_multiple_input[0])
+
+    m = int(first_multiple_input[1])
+
+    grid = []
+
+    for _ in range(n):
+        grid_item = input()
+        grid.append(grid_item)
+
+    result = twoPluses(grid)
+
+    fptr.write(str(result) + '\n')
