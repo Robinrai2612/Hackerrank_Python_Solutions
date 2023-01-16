@@ -1,4 +1,3 @@
-
 def alternate(s):
     pl = [ii for ii in set(map(str, s))]
     m = 0
