@@ -1,1 +1,20 @@
 
+def alternate(s):
+    pl = [ii for ii in set(map(str, s))]
+    m = 0
+    for i in range(len(pl)-1):
+        for j in range(i+1, len(pl)):
+            b = None
+            for ii in s:
+                if ii == pl[i]:
+                    if b:
+                        break
+                    b = True
+                if ii == pl[j]:
+                    if not b:
+                        break
+                    b = False
+            else:
+                if m < s.count(pl[i])+s.count(pl[j]):
+                    m = s.count(pl[i])+s.count(pl[j])
+    return m
